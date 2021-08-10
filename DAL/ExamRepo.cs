@@ -27,8 +27,16 @@ namespace DAL
 
         public static void UpdateExam(Exam e, int id)
         {
+            // TODO: Verify this method
             var exam = context.Exams.Find(id);
             exam = e;
+            context.SaveChanges();
+        }
+
+        public static void DeleteExam(int id)
+        {
+            var exam = context.Exams.Find(id);
+            context.Exams.Remove(exam);
             context.SaveChanges();
         }
     }
