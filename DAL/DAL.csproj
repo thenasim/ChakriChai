@@ -59,6 +59,7 @@
     <Compile Include="Employee.cs" />
     <Compile Include="Employeer.cs" />
     <Compile Include="EmployeeRepo.cs" />
+    <Compile Include="EmployeerRepo.cs" />
     <Compile Include="Exam.cs" />
     <Compile Include="ExamRepo.cs" />
     <Compile Include="JobPost.cs" />
