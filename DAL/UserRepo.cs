@@ -31,6 +31,8 @@ namespace DAL
             context.SaveChanges();
         }
 
+        // TODO: Update User
+
         public static void DeleteUser(int id)
         {
             User user = context.Users.Find(id);
