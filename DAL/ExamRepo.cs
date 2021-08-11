@@ -25,6 +25,12 @@ namespace DAL
             return context.Exams.Find(id);
         }
 
+        public static void CreateExam(Exam e)
+        {
+            context.Exams.Add(e);
+            context.SaveChanges();
+        }
+
         public static void UpdateExam(Exam e, int id)
         {
             // TODO: Verify this method

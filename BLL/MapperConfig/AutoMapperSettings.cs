@@ -14,6 +14,8 @@ namespace BLL.MapperConfig
         public AutoMapperSettings()
         {
             CreateMap<UserModel, User>();
+            CreateMap<ExamModel, Exam>();
+            CreateMap<BoardModel, Board>();
         }
     }
 }

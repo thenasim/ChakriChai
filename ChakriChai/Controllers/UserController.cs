@@ -22,13 +22,14 @@ namespace ChakriChai.Controllers
         }
 
         [HttpPost()]
-        [Route("api/User/Add")]
+        [Route("api/User/Create")]
         public void CreateUser(UserModel u)
         {
             UserService.CreateUser(u);
         }
 
-        [HttpDelete()]
+        // TODO: Update User Route
+
         [Route("api/User/Delete/{id}")]
         public void DeleteUser(int id)
         {
