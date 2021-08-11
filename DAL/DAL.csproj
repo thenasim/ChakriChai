@@ -53,6 +53,7 @@
   <ItemGroup>
     <Compile Include="Academic.cs" />
     <Compile Include="Apply.cs" />
+    <Compile Include="ApplyRepo.cs" />
     <Compile Include="Board.cs" />
     <Compile Include="BoardRepo.cs" />
     <Compile Include="ChakriChaiContext.cs" />
