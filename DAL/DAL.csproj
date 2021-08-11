@@ -52,6 +52,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Academic.cs" />
+    <Compile Include="AcademicRepo.cs" />
     <Compile Include="Apply.cs" />
     <Compile Include="ApplyRepo.cs" />
     <Compile Include="Board.cs" />
