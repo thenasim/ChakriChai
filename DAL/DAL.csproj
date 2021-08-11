@@ -63,6 +63,7 @@
     <Compile Include="Exam.cs" />
     <Compile Include="ExamRepo.cs" />
     <Compile Include="JobPost.cs" />
+    <Compile Include="JobPostRepo.cs" />
     <Compile Include="Migrations\202108090709305_Init.cs" />
     <Compile Include="Migrations\202108090709305_Init.designer.cs">
       <DependentUpon>202108090709305_Init.cs</DependentUpon>
