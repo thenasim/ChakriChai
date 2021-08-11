@@ -25,6 +25,12 @@ namespace DAL
             return context.Boards.Find(id);
         }
 
+        public static void CreateBoard(Board b)
+        {
+            context.Boards.Add(b);
+            context.SaveChanges();
+        }
+
         public static void UpdateBoard(Board b, int id)
         {
             // TODO: Verify this method
