@@ -27,7 +27,19 @@ namespace BLL
         public static void CreateUser(UserModel u)
         {
             var data = AutoMapper.Mapper.Map<UserModel, User>(u);
-            UserRepo.CreateUser(data);
+
+            if (u.Role == "EMPLOYEE")
+            {
+                EmployeeRepo.CreateEmployee(new Employee { User = data });
+            }
+            else if (u.Role == "EMPLOYEER")
+            {
+                EmployeerRepo.CreateEmployeer(new Employeer { User = data, YearEstablishment = DateTime.Now });
+            }
+            else
+            {
+                UserRepo.CreateUser(data);
+            }
         }
 
         public static void DeleteUser(int id)
