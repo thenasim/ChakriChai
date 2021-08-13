@@ -68,6 +68,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BoardService.cs" />
+    <Compile Include="EmployeeService.cs" />
     <Compile Include="ExamService.cs" />
     <Compile Include="MapperConfig\AutoMapperSettings.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

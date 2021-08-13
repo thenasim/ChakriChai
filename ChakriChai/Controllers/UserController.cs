@@ -12,7 +12,7 @@ namespace ChakriChai.Controllers
     public class UserController : ApiController
     {
         [Route("api/User/GetAll/{limit?}")]
-        public List<UserModel> GetAllStudents(int limit = 10) {
+        public List<UserModel> GetAllUser(int limit = 10) {
             return UserService.GetAllUser(limit);
         }
 

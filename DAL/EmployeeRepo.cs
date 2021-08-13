@@ -15,14 +15,14 @@ namespace DAL
             context = new ChakriChaiContext();
         }
 
-        public static List<Employee> GetAllEmployees(int limit)
+        public static List<User> GetAllEmployees(int limit)
         {
-            return context.Employees.Take(limit).ToList();
+            return context.Users.Where(e => e.Role == "EMPLOYEE").Take(limit).ToList();
         }
 
-        public static Employee GetEmployee(int userId)
+        public static User GetEmployee(int userId)
         {
-            return context.Employees.Where(e => e.UserId == userId).FirstOrDefault();
+            return context.Users.Where(e => e.UserId == userId && e.Role == "EMPLOYEE").FirstOrDefault();
         }
 
         public static void CreateEmployee(Employee e)
@@ -35,8 +35,8 @@ namespace DAL
 
         public static void DeleteEmployee(int userId)
         {
-            var emp = context.Employees.Where(e => e.UserId == userId).FirstOrDefault();
-            context.Employees.Remove(emp);
+            var emp = context.Users.Where(e => e.UserId == userId && e.Role == "EMPLOYEE").FirstOrDefault();
+            context.Users.Remove(emp);
             context.SaveChanges();
         }
     }
