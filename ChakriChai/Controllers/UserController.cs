@@ -16,6 +16,18 @@ namespace ChakriChai.Controllers
             return UserService.GetAllUser(limit);
         }
 
+        [HttpPost()]
+        [Route("api/User/login")]
+        public IHttpActionResult Login(LoginModel lm)
+        {
+            UserModel user = UserService.Login(lm);
+            if (user == null) {
+                return Ok(new { msg = "No User Found" });
+            }
+
+            return Ok(user);
+        }
+
         [Route("api/User/Get/{id}")]
         public UserModel Get(int id) {
             return UserService.GetUser(id);

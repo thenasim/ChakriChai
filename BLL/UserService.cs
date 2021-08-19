@@ -24,6 +24,14 @@ namespace BLL
             return final;
         }
 
+        public static UserModel Login(LoginModel lm)
+        {
+            var user = new User { Email = lm.Email, Password = lm.Password };
+            var data = UserRepo.Login(user);
+            var final = AutoMapper.Mapper.Map<User, UserModel>(data);
+            return final;
+        }
+
         public static void CreateUser(UserModel u)
         {
             var data = AutoMapper.Mapper.Map<UserModel, User>(u);
