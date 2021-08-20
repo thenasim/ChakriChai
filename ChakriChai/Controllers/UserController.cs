@@ -22,7 +22,7 @@ namespace ChakriChai.Controllers
         {
             UserModel user = UserService.Login(lm);
             if (user == null) {
-                return Ok(new { msg = "No User Found" });
+                return Ok(new ErrMsg("User no found"));
             }
 
             return Ok(user);

@@ -29,6 +29,12 @@ namespace BLL
             var data = AutoMapper.Mapper.Map<BoardModel, Board>(b);
             BoardRepo.CreateBoard(data);
         }
+        
+        public static void Update(int id, BoardModel b)
+        {
+            var data = AutoMapper.Mapper.Map<BoardModel, Board>(b);
+            BoardRepo.UpdateBoard(data, id);
+        }
 
         public static void DeleteBoard(int id)
         {

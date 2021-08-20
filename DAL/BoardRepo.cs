@@ -33,9 +33,11 @@ namespace DAL
 
         public static void UpdateBoard(Board b, int id)
         {
-            // TODO: Verify this method
             var board = context.Boards.Find(id);
-            board = b;
+
+            b.BoardId = board.BoardId;
+
+            context.Entry(board).CurrentValues.SetValues(b);
             context.SaveChanges();
         }
 

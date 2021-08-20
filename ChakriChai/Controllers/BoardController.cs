@@ -29,6 +29,13 @@ namespace ChakriChai.Controllers
             BoardService.CreateBoard(b);
         }
 
+        [HttpPost()]
+        [Route("api/Board/Update/{id}")]
+        public void UpdateBoard(int id, BoardModel b)
+        {
+            BoardService.Update(id, b);
+        }
+
         [Route("api/Board/Delete/{id}")]
         public void Delete(int id)
         {
