@@ -36,7 +36,15 @@ namespace DAL
             return context.Users.Where(u => u.Email == fu.Email && u.Password == fu.Password).FirstOrDefault();
         }
 
-        // TODO: Update User
+        public static void UpdateUser(int userId, User u)
+        {
+            var user = context.Users.Find(userId);
+
+            u.UserId = user.UserId;
+
+            context.Entry(user).CurrentValues.SetValues(u);
+            context.SaveChanges();
+        }
 
         public static void DeleteUser(int id)
         {

@@ -50,6 +50,12 @@ namespace BLL
             }
         }
 
+        public static void UpdateUser(int userId, UserModel u)
+        {
+            var data = AutoMapper.Mapper.Map<UserModel, User>(u);
+            UserRepo.UpdateUser(userId, data);
+        }
+
         public static void DeleteUser(int id)
         {
             UserRepo.DeleteUser(id);
