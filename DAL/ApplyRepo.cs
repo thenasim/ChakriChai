@@ -63,7 +63,10 @@ namespace DAL
                 return false;
             }
 
-            apply.ApplyId = ap.ApplyId;
+            ap.ApplyId = apply.ApplyId;
+            ap.EmployeeId = apply.EmployeeId;
+            ap.JobPostId = apply.JobPostId;
+
             context.Entry(apply).CurrentValues.SetValues(ap);
             context.SaveChanges();
 
