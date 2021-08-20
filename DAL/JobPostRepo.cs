@@ -20,6 +20,11 @@ namespace DAL
             return context.JobPosts.Take(limit).ToList();
         }
 
+        public static List<JobPost> SearchJobPost(string keyword)
+        {
+            return context.JobPosts.Where(j => j.Title.Contains(keyword)).ToList();
+        }
+
         public static List<JobPost> GetJobPostsByUser(int userId, int limit)
         {
             var data = context.Employeers.Where(e => e.UserId == userId).FirstOrDefault();

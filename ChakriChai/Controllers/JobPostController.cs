@@ -16,7 +16,19 @@ namespace ChakriChai.Controllers
             var jobPosts = JobPostService.GetJobPosts(sort, limit);
             if (jobPosts == null)
             {
-                return Ok(new ErrMsg("Invalid userId"));
+                return Ok(new ErrMsg("No job post found"));
+            }
+
+            return Ok(jobPosts);
+        }
+
+        [HttpGet()]
+        [Route("api/JobPost/Search/{keyword}")]
+        public IHttpActionResult SearchJobPosts(string keyword) {
+            var jobPosts = JobPostService.SearchJobPost(keyword);
+            if (jobPosts == null)
+            {
+                return Ok(new ErrMsg("No job post found"));
             }
 
             return Ok(jobPosts);

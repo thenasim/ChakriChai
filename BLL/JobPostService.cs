@@ -7,10 +7,17 @@ namespace BLL
 {
     public class JobPostService
     {
-        public static List<JobPostModel> GetJobPosts(string sort, int limit)
+        public static List<JobPostViewModel> GetJobPosts(string sort, int limit)
         {
             var data = JobPostRepo.GetJobPosts(sort, limit);
-            var result = AutoMapper.Mapper.Map<List<JobPost>, List<JobPostModel>>(data);
+            var result = AutoMapper.Mapper.Map<List<JobPost>, List<JobPostViewModel>>(data);
+            return result;
+        }
+
+        public static List<JobPostViewModel> SearchJobPost(string keyword)
+        {
+            var data = JobPostRepo.SearchJobPost(keyword);
+            var result = AutoMapper.Mapper.Map<List<JobPost>, List<JobPostViewModel>>(data);
             return result;
         }
 

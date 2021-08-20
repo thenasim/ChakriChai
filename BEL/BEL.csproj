@@ -45,6 +45,7 @@
     <Compile Include="ErrMsg.cs" />
     <Compile Include="ExamModel.cs" />
     <Compile Include="JobPostModel.cs" />
+    <Compile Include="JobPostViewModel.cs" />
     <Compile Include="LoginModel.cs" />
     <Compile Include="OkMsg.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
