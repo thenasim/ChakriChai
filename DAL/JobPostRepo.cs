@@ -15,13 +15,25 @@ namespace DAL
             context = new ChakriChaiContext();
         }
 
-        public static List<JobPost> GetAllJobPosts(int limit)
+        public static List<JobPost> GetJobPostsByUser(int userId, int limit)
         {
-            return context.JobPosts.Take(limit).ToList();
+            var data = context.Employeers.Where(e => e.UserId == userId).FirstOrDefault();
+            if (data == null)
+            {
+                return null;
+            }
+
+            return context.JobPosts.Where(j => j.EmployeerId == data.EmployeerId).Take(limit).ToList();
         }
 
         public static List<JobPost> GetJobPostsByEmployeer(int employeerId, int limit)
         {
+            var data = context.Employeers.Where(e => e.EmployeerId == employeerId).FirstOrDefault();
+            if (data == null)
+            {
+                return null;
+            }
+
             return context.JobPosts.Where(j => j.EmployeerId == employeerId).Take(limit).ToList();
         }
 
@@ -29,20 +41,53 @@ namespace DAL
         {
             return context.JobPosts.Find(id);
         }
-        
-        public static void CreateJobPost(JobPost j)
+
+        public static bool CreateJobPostByUser(int userId, JobPost jb)
         {
-            context.JobPosts.Add(j);
+            var data = context.Employeers.Where(e => e.UserId == userId).FirstOrDefault();
+            if (data == null)
+            {
+                return false;
+            }
+
+            jb.EmployeerId = data.EmployeerId;
+
+            context.JobPosts.Add(jb);
             context.SaveChanges();
+
+            return true;
+        }
+
+        public static bool CreateJobPostByEmployeer(int employeerId, JobPost jb)
+        {
+            var data = context.Employeers.Where(e => e.EmployeerId == employeerId).FirstOrDefault();
+            if (data == null)
+            {
+                return false;
+            }
+
+            jb.EmployeerId = data.EmployeerId;
+
+            context.JobPosts.Add(jb);
+            context.SaveChanges();
+
+            return true;
         }
 
         // TODO: Update JobPost
 
-        public static void DeleteJobPost(int id)
+        public static bool DeleteJobPost(int id)
         {
             var job = context.JobPosts.Find(id);
+            if (job == null)
+            {
+                return false;
+            }
+
             context.JobPosts.Remove(job);
             context.SaveChanges();
+
+            return true;
         }
     }
 }
