@@ -15,6 +15,11 @@ namespace DAL
             context = new ChakriChaiContext();
         }
 
+        public static List<JobPost> GetJobPosts(string sort, int limit)
+        {
+            return context.JobPosts.Take(limit).ToList();
+        }
+
         public static List<JobPost> GetJobPostsByUser(int userId, int limit)
         {
             var data = context.Employeers.Where(e => e.UserId == userId).FirstOrDefault();

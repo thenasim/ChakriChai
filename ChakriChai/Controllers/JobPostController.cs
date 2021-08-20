@@ -11,6 +11,17 @@ namespace ChakriChai.Controllers
 {
     public class JobPostController : ApiController
     {
+        [Route("api/JobPost/GetAll/{sort}/{limit?}")]
+        public IHttpActionResult GetAllJobPosts(string sort, int limit = 10) {
+            var jobPosts = JobPostService.GetJobPosts(sort, limit);
+            if (jobPosts == null)
+            {
+                return Ok(new ErrMsg("Invalid userId"));
+            }
+
+            return Ok(jobPosts);
+        }
+
         [Route("api/JobPost/GetByUser/{userId}/{limit?}")]
         public IHttpActionResult GetJobPostsByUser(int userId, int limit = 10) {
             var jobPosts = JobPostService.GetJobPostsByUser(userId, limit);
@@ -22,20 +33,16 @@ namespace ChakriChai.Controllers
             return Ok(jobPosts);
         }
 
-        //[Route("api/JobPost/GetByEmployeer/{employeerId}/{limit?}")]
-        //public IHttpActionResult GetJobPostsByEmployeer(int employeerId, int limit = 10) {
-        //    var jobPosts = JobPostService.GetJobPostsByEmployeer(employeerId, limit);
-        //    if (jobPosts == null)
-        //    {
-        //        return Ok(new { msg = "No Job posts found for this employeeId" });
-        //    }
-
-        //    return Ok(jobPosts);
-        //}
-
         [Route("api/JobPost/Get/{jobPostId}")]
-        public JobPostModel Get(int jobPostId) {
-            return JobPostService.GetJobPost(jobPostId);
+        public IHttpActionResult Get(int jobPostId)
+        {
+            var jobPost = JobPostService.GetJobPost(jobPostId);
+            if (jobPost == null)
+            {
+                return Ok(new ErrMsg("No job post found"));
+            }
+
+            return Ok(jobPost);
         }
 
         [HttpPost()]

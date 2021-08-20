@@ -7,6 +7,13 @@ namespace BLL
 {
     public class JobPostService
     {
+        public static List<JobPostModel> GetJobPosts(string sort, int limit)
+        {
+            var data = JobPostRepo.GetJobPosts(sort, limit);
+            var result = AutoMapper.Mapper.Map<List<JobPost>, List<JobPostModel>>(data);
+            return result;
+        }
+
         public static List<JobPostModel> GetJobPostsByUser(int userId, int limit)
         {
             var data = JobPostRepo.GetJobPostsByUser(userId, limit);
@@ -14,12 +21,12 @@ namespace BLL
             return result;
         }
 
-        public static List<JobPostModel> GetJobPostsByEmployeer(int employeerId, int limit)
-        {
-            var data = JobPostRepo.GetJobPostsByEmployeer(employeerId, limit);
-            var result = AutoMapper.Mapper.Map<List<JobPost>, List<JobPostModel>>(data);
-            return result;
-        }
+        //public static List<JobPostModel> GetJobPostsByEmployeer(int employeerId, int limit)
+        //{
+        //    var data = JobPostRepo.GetJobPostsByEmployeer(employeerId, limit);
+        //    var result = AutoMapper.Mapper.Map<List<JobPost>, List<JobPostModel>>(data);
+        //    return result;
+        //}
 
         public static JobPostModel GetJobPost(int id)
         {
