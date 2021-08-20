@@ -21,6 +21,11 @@ namespace ChakriChai.Controllers
             return EmployeerService.GetEmployeer(userId);
         }
 
+        [Route("api/Employeer/GetDetails/{userId}")]
+        public EmployeerModel GetEmployeerDetails(int userId) {
+            return EmployeerService.GetEmployeerDetails(userId);
+        }
+
         [HttpPost()]
         [Route("api/Employeer/Create")]
         public void CreateEmployeer(UserModel u)
@@ -30,7 +35,12 @@ namespace ChakriChai.Controllers
             UserService.CreateUser(u);
         }
 
-        // TODO: Update User Route
+        [HttpPost()]
+        [Route("api/Employeer/Update/{userId}")]
+        public void Update(int userId, EmployeerModel emp)
+        {
+            EmployeerService.UpdateEmployeer(userId, emp);
+        }
 
         [Route("api/Employeer/Delete/{userId}")]
         public void DeleteEmployeer(int userId)

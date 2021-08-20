@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace DAL
@@ -20,6 +21,28 @@ namespace DAL
         public static User GetEmployeer(int userId)
         {
             return context.Users.Where(e => e.UserId == userId && e.Role == "EMPLOYEER").FirstOrDefault();
+        }
+
+        public static bool UpdateEmployeerDetails(int userId, Employeer emp)
+        {
+            var data = context.Employeers.Where(e => e.UserId == userId).FirstOrDefault();
+            if (data == null)
+            {
+                return false;
+            }
+
+            emp.EmployeerId = data.EmployeerId;
+            emp.UserId = data.UserId;
+
+            context.Entry(data).CurrentValues.SetValues(emp);
+            context.SaveChanges();
+
+            return true;
+        }
+
+        public static Employeer GetEmployeerDetails(int userId)
+        {
+            return context.Employeers.Where(e => e.UserId == userId).FirstOrDefault();
         }
 
         public static void CreateEmployeer(Employeer e)

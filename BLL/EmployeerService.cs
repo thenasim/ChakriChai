@@ -1,5 +1,6 @@
 ﻿using BEL;
 using DAL;
+using System;
 using System.Collections.Generic;
 
 namespace BLL
@@ -17,6 +18,19 @@ namespace BLL
         {
             var data = EmployeerRepo.GetEmployeer(userId);
             var final = AutoMapper.Mapper.Map<User, UserModel>(data);
+            return final;
+        }
+
+        public static bool UpdateEmployeer(int userId, EmployeerModel emp)
+        {
+            var data = AutoMapper.Mapper.Map<EmployeerModel, Employeer>(emp);
+            return EmployeerRepo.UpdateEmployeerDetails(userId, data);
+        }
+
+        public static EmployeerModel GetEmployeerDetails(int userId)
+        {
+            var data = EmployeerRepo.GetEmployeerDetails(userId);
+            var final = AutoMapper.Mapper.Map<Employeer, EmployeerModel>(data);
             return final;
         }
 
