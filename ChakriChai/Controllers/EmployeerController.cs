@@ -26,6 +26,7 @@ namespace ChakriChai.Controllers
         public void CreateEmployeer(UserModel u)
         {
             u.Role = "EMPLOYEER";
+            u.Status = "INACTIVE";
             UserService.CreateUser(u);
         }
 
