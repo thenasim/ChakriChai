@@ -25,6 +25,7 @@ namespace ChakriChai.Controllers
         [Route("api/Employee/Create")]
         public void CreateEmployee(UserModel u)
         {
+            u.Role = "EMPLOYEE";
             UserService.CreateUser(u);
         }
 
@@ -33,7 +34,7 @@ namespace ChakriChai.Controllers
         [Route("api/Employee/Delete/{userId}")]
         public void DeleteEmployee(int userId)
         {
-            UserService.DeleteUser(userId);
+            EmployeeService.DeleteEmployee(userId);
         }
     }
 }

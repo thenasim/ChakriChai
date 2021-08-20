@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DAL
 {
@@ -15,14 +12,14 @@ namespace DAL
             context = new ChakriChaiContext();
         }
 
-        public static List<Employeer> GetAllEmployeers(int limit)
+        public static List<User> GetAllEmployeers(int limit)
         {
-            return context.Employeers.Take(limit).ToList();
+            return context.Users.Where(u => u.Role == "EMPLOYEER").Take(limit).ToList();
         }
 
-        public static Employeer GetEmployeer(int userId)
+        public static User GetEmployeer(int userId)
         {
-            return context.Employeers.Where(e => e.UserId == userId).FirstOrDefault();
+            return context.Users.Where(e => e.UserId == userId && e.Role == "EMPLOYEER").FirstOrDefault();
         }
 
         public static void CreateEmployeer(Employeer e)
@@ -35,8 +32,8 @@ namespace DAL
 
         public static void DeleteEmployeer(int userId)
         {
-            var emp = context.Employeers.Where(e => e.UserId == userId).FirstOrDefault();
-            context.Employeers.Remove(emp);
+            var emp = context.Users.Where(e => e.UserId == userId && e.Role == "EMPLOYEER").FirstOrDefault();
+            context.Users.Remove(emp);
             context.SaveChanges();
         }
     }
