@@ -13,6 +13,7 @@ namespace BLL.MapperConfig
             CreateMap<BoardModel, Board>();
             CreateMap<JobPostModel, JobPost>();
             CreateMap<JobPostViewModel, JobPost>();
+            CreateMap<ApplyModel, Apply>();
         }
     }
 }

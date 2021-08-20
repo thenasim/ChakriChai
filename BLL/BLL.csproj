@@ -67,6 +67,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApplyService.cs" />
     <Compile Include="BoardService.cs" />
     <Compile Include="EmployeerService.cs" />
     <Compile Include="EmployeeService.cs" />

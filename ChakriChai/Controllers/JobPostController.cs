@@ -61,7 +61,7 @@ namespace ChakriChai.Controllers
         [Route("api/JobPost/CreateByUser/{userId}")]
         public IHttpActionResult CreateJobPostByUser(int userId, JobPostModel jb)
         {
-            if (JobPostService.CreateGetJobPost(userId, jb))
+            if (JobPostService.CreateJobPost(userId, jb))
             {
                 return Ok(new OkMsg("Created successfully"));
             }

@@ -42,7 +42,7 @@ namespace BLL
             return result;
         }
 
-        public static bool CreateGetJobPost(int userId, JobPostModel jb)
+        public static bool CreateJobPost(int userId, JobPostModel jb)
         {
             var data = AutoMapper.Mapper.Map<JobPostModel, JobPost>(jb);
             return JobPostRepo.CreateJobPostByUser(userId, data);
