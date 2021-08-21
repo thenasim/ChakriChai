@@ -69,6 +69,7 @@ namespace ChakriChai.Controllers
             return Ok(new ErrMsg("User id not found"));
         }
 
+        [HttpGet()]
         [Route("api/JobPost/Delete/{jobPostId}")]
         public IHttpActionResult Delete(int jobPostId) {
             if (JobPostService.DeleteJobPost(jobPostId))

@@ -32,6 +32,7 @@ namespace ChakriChai.Controllers
 
         // TODO: Update User Route
 
+        [HttpGet()]
         [Route("api/Employee/Delete/{userId}")]
         public void DeleteEmployee(int userId)
         {

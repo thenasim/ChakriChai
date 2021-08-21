@@ -68,6 +68,7 @@ namespace ChakriChai.Controllers
             return Ok(new OkMsg("Academic updated successfully"));
         }
 
+        [HttpGet()]
         [Route("api/Academic/Delete/{academicId}")]
         public IHttpActionResult Delete(int academicId) {
             var isDeleted = AcademicService.DeleteAcademic(academicId);

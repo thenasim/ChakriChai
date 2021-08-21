@@ -79,6 +79,7 @@ namespace ChakriChai.Controllers
             return Ok(new OkMsg("Apply updated successfully"));
         }
 
+        [HttpGet()]
         [Route("api/Apply/Delete/{applyId}")]
         public IHttpActionResult Delete(int applyId) {
             var isUpdated = ApplyService.DeleteApply(applyId);

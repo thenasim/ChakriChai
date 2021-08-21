@@ -29,6 +29,7 @@ namespace ChakriChai.Controllers
             ExamService.CreateExam(e);
         }
 
+        [HttpGet()]
         [Route("api/Exam/Delete/{id}")]
         public void Delete(int id)
         {

@@ -36,6 +36,7 @@ namespace ChakriChai.Controllers
             BoardService.Update(id, b);
         }
 
+        [HttpGet()]
         [Route("api/Board/Delete/{id}")]
         public void Delete(int id)
         {

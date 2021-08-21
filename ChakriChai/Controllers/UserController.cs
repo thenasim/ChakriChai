@@ -47,6 +47,7 @@ namespace ChakriChai.Controllers
             UserService.UpdateUser(userId, u);
         }
 
+        [HttpGet()]
         [Route("api/User/Delete/{id}")]
         public void DeleteUser(int id)
         {

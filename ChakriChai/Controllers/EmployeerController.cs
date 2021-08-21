@@ -42,6 +42,7 @@ namespace ChakriChai.Controllers
             EmployeerService.UpdateEmployeer(userId, emp);
         }
 
+        [HttpGet()]
         [Route("api/Employeer/Delete/{userId}")]
         public void DeleteEmployeer(int userId)
         {
